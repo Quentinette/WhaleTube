@@ -13,7 +13,7 @@ from PIL import Image, ImageTk
 if getattr(sys, 'frozen', False):
     import pyi_splash
 
-class YouTubeDownloaderApp:
+class WhaleTubeApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Convertisseur Youtube de Quentin")
@@ -165,5 +165,5 @@ if getattr(sys, 'frozen', False):
     pyi_splash.close()
 
 root = ThemedTk(theme="equilux")
-app = YouTubeDownloaderApp(root)
+app = WhaleTubeApp(root)
 root.mainloop()
