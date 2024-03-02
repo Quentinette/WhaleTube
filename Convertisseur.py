@@ -206,7 +206,7 @@ class WhaleTubeApp:
             self.download_state.set(f'Téléchargement de "{sname}" en cours...')
             yt = YouTube(video_link, on_progress_callback=self.progress_function)
             intn = yt.title
-            name = re.sub("[?$@]","",intn)
+            name = re.sub("[?$@|]","",intn)
             print (name)
             if download_type == "Video":
                 stream = yt.streams.get_highest_resolution()
