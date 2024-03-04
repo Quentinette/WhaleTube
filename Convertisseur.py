@@ -156,14 +156,19 @@ class WhaleTubeApp:
 
         print("Toutes les bibliothèques nécessaires sont installées. Le programme peut être exécuté.")
 
+    
     def get_available_drives(self):
         drive_list = []
         for drive in psutil.disk_partitions():
-            disk_name = win32api.GetVolumeInformation(drive.device)[0]  
-            disk_usage = psutil.disk_usage(drive.mountpoint)
-            disk_info = f"{disk_name} ({drive.device} {disk_usage.percent}%)"
-            drive_list.append(disk_info)
+            try:
+                disk_name = win32api.GetVolumeInformation(drive.device)[0]
+                disk_usage = psutil.disk_usage(drive.mountpoint)
+                disk_info = f"{disk_name} ({drive.device} {disk_usage.percent}%)"
+                drive_list.append(disk_info)
+            except Exception as e:
+                print(f"Error accessing drive {drive.device}: {e}")
         return drive_list
+
 
     def copy_folder_threaded(self):
         threading.Thread(target=self.copy_folder).start()
