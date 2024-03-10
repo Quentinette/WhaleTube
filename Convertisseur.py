@@ -84,7 +84,7 @@ class WhaleTubeApp:
 
         self.transfer_elements_frame = ttk.Frame(self.root)
         self.transfer_elements_frame.grid(row=2, column=1, padx=10, pady=0, sticky="new")
-        self.create_transfer_elements()  # Créer les éléments de transfert
+        self.create_transfer_elements()
         if not self.show_transfer_elements.get():
             self.transfer_elements_frame.grid_remove()
 
@@ -103,9 +103,9 @@ class WhaleTubeApp:
 
     def toggle_transfer_elements(self):
         if self.show_transfer_elements.get():
-            self.transfer_elements_frame.grid()  # Afficher les éléments de transfert
+            self.transfer_elements_frame.grid()
         else:
-            self.transfer_elements_frame.grid_remove()  #
+            self.transfer_elements_frame.grid_remove() 
 
     def on_entry_click(self, event):
         if self.link_entry.get() == "Coller le lien YouTube ici":
